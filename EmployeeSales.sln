@@ -13,19 +13,31 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tables", "Tables", "{DDE8B913-09B8-4F57-A4C0-17F76C0512F9}"
 	ProjectSection(SolutionItems) = preProject
 		Database\Tables\00.CreateEmployeeSalesDB.sql = Database\Tables\00.CreateEmployeeSalesDB.sql
-		Database\Tables\01.EmployeeStatus.sql = Database\Tables\01.EmployeeStatus.sql
 		Database\Tables\01.EmploymentStatus.sql = Database\Tables\01.EmploymentStatus.sql
 		Database\Tables\02.Store.sql = Database\Tables\02.Store.sql
 		Database\Tables\03.Employee.sql = Database\Tables\03.Employee.sql
 		Database\Tables\04.Product.sql = Database\Tables\04.Product.sql
-		Database\Tables\05.StoreProductMatch.sql = Database\Tables\05.StoreProductMatch.sql
-		Database\Tables\06.Commission.sql = Database\Tables\06.Commission.sql
-		Database\Tables\07.Purchase.sql = Database\Tables\07.Purchase.sql
+		Database\Tables\05.Commission.sql = Database\Tables\05.Commission.sql
+		Database\Tables\06.Purchase.sql = Database\Tables\06.Purchase.sql
+		Database\Tables\_Tables_RunAll.sql = Database\Tables\_Tables_RunAll.sql
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StoredProcedures", "StoredProcedures", "{F248CEC1-6292-49CD-A804-747CB25E9C41}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReRunnable", "ReRunnable", "{F248CEC1-6292-49CD-A804-747CB25E9C41}"
+	ProjectSection(SolutionItems) = preProject
+		Database\ReRunnable\_ReRunnable_RunAll.sql = Database\ReRunnable\_ReRunnable_RunAll.sql
+		Database\ReRunnable\ufn_GenerateProfit.sql = Database\ReRunnable\ufn_GenerateProfit.sql
+		Database\ReRunnable\usp_GeneratingPurchaseData.sql = Database\ReRunnable\usp_GeneratingPurchaseData.sql
+		Database\ReRunnable\vw_GetRandSalePercentProfit.sql = Database\ReRunnable\vw_GetRandSalePercentProfit.sql
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{480F2D12-2A34-45B7-9D4F-6F8F5262A6F2}"
+	ProjectSection(SolutionItems) = preProject
+		Database\Data\00.StoreData.sql = Database\Data\00.StoreData.sql
+		Database\Data\01.EmployeeData.sql = Database\Data\01.EmployeeData.sql
+		Database\Data\02.ProductData.sql = Database\Data\02.ProductData.sql
+		Database\Data\03.PurchaseData.sql = Database\Data\03.PurchaseData.sql
+		Database\Data\_Data_RunAll.sql = Database\Data\_Data_RunAll.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

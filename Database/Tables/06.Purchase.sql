@@ -4,13 +4,13 @@ GO
 IF OBJECT_ID('dbo.Purchase') IS NULL
 BEGIN
 	CREATE TABLE Purchase (
-		Id				BIGINT			NOT NULL
-		,EmployeeId		INT				NOT NULL
-		,ProductId		INT				NOT NULL
-		,CreatedAt		DATETIME2		NOT NULL
-		,CommissionId	INT				NOT NULL
-		,SalePrice		DECIMAL(8,2)	NOT NULL
-		,TotalCost		DECIMAL(8,2)	NOT NULL
+		Id				BIGINT IDENTITY(1,1)	NOT NULL
+		,EmployeeId		INT						NOT NULL
+		,ProductId		INT						NOT NULL
+		,CreatedAt		DATETIME2				NOT NULL
+		,CommissionId	INT						NOT NULL
+		,SalePrice		DECIMAL(10,2)			NOT NULL
+		,CommissionMade	DECIMAL(10,2)			NOT NULL
 		,CONSTRAINT PK_Purchase PRIMARY KEY (Id)
 		,CONSTRAINT FK_Purchase_Employee
 			FOREIGN KEY (EmployeeId)
