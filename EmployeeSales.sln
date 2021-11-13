@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tables", "Tables", "{DDE8B9
 		Database\Tables\03.Employee.sql = Database\Tables\03.Employee.sql
 		Database\Tables\04.Product.sql = Database\Tables\04.Product.sql
 		Database\Tables\05.StoreProductMatch.sql = Database\Tables\05.StoreProductMatch.sql
+		Database\Tables\06.Commission.sql = Database\Tables\06.Commission.sql
+		Database\Tables\07.Purchase.sql = Database\Tables\07.Purchase.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StoredProcedures", "StoredProcedures", "{F248CEC1-6292-49CD-A804-747CB25E9C41}"
