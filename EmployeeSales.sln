@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeSales", "EmployeeSales\EmployeeSales.csproj", "{BED1B24C-7F18-4F13-8A70-BF3C58B6633D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{A3D0A9C7-CC5E-4BF3-B481-79C0B19F50C9}"
+	ProjectSection(SolutionItems) = preProject
+		Database\ReadMe.md = Database\ReadMe.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tables", "Tables", "{DDE8B913-09B8-4F57-A4C0-17F76C0512F9}"
+	ProjectSection(SolutionItems) = preProject
+		Database\Tables\00.CreateEmployeeSalesDB.sql = Database\Tables\00.CreateEmployeeSalesDB.sql
+		Database\Tables\01.EmployeeStatus.sql = Database\Tables\01.EmployeeStatus.sql
+		Database\Tables\01.EmploymentStatus.sql = Database\Tables\01.EmploymentStatus.sql
+		Database\Tables\02.Store.sql = Database\Tables\02.Store.sql
+		Database\Tables\03.Employee.sql = Database\Tables\03.Employee.sql
+		Database\Tables\04.Product.sql = Database\Tables\04.Product.sql
+		Database\Tables\05.StoreProductMatch.sql = Database\Tables\05.StoreProductMatch.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StoredProcedures", "StoredProcedures", "{F248CEC1-6292-49CD-A804-747CB25E9C41}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{480F2D12-2A34-45B7-9D4F-6F8F5262A6F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BED1B24C-7F18-4F13-8A70-BF3C58B6633D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BED1B24C-7F18-4F13-8A70-BF3C58B6633D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BED1B24C-7F18-4F13-8A70-BF3C58B6633D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BED1B24C-7F18-4F13-8A70-BF3C58B6633D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DDE8B913-09B8-4F57-A4C0-17F76C0512F9} = {A3D0A9C7-CC5E-4BF3-B481-79C0B19F50C9}
+		{F248CEC1-6292-49CD-A804-747CB25E9C41} = {A3D0A9C7-CC5E-4BF3-B481-79C0B19F50C9}
+		{480F2D12-2A34-45B7-9D4F-6F8F5262A6F2} = {A3D0A9C7-CC5E-4BF3-B481-79C0B19F50C9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C9DBE0DD-EC34-4501-A6BB-EE4622476408}
+	EndGlobalSection
+EndGlobal

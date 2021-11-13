@@ -1,0 +1,16 @@
+USE EmployeeSales;
+GO
+
+IF OBJECT_ID('dbo.Store') IS NULL
+BEGIN
+	CREATE TABLE Store (
+		Id				INT IDENTITY(1,1)	NOT NULL
+		,StoreName		VARCHAR(500)		NOT NULL
+		,Street			NVARCHAR(500)		NOT NULL
+		,[State]		VARCHAR(100)		NOT NULL
+		,Zipcode		VARCHAR(20)			NOT NULL
+		,CONSTRAINT PK_Store 
+			PRIMARY KEY (Id)
+	);
+END
+GO
