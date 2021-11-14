@@ -10002,6 +10002,6 @@ insert into Purchase (EmployeeId, ProductId, CreatedAt, CommissionId, SalePrice,
 insert into Purchase (EmployeeId, ProductId, CreatedAt, CommissionId, SalePrice, CommissionMade) values (6, 181, '2010-02-28 06:37:41', 1, 0.0, 0.0);
 insert into Purchase (EmployeeId, ProductId, CreatedAt, CommissionId, SalePrice, CommissionMade) values (38, 181, '2010-02-22 14:44:47', 1, 0.0, 0.0);
 
-EXEC dbo.FinishGeneratingPurchaseData
+EXEC dbo.usp_GeneratingPurchaseData
 
 GO
