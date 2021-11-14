@@ -7,9 +7,9 @@ Some of static data tables will be populated with data with these scripts as wel
 
 2. **ReRunnable**
 These are all the script that can be rerun for updates. This includes StoredProcedures, Functions, and Views. The prefix naming convention for each is as follows:
-- Stored Procedures = `usp_{ProcedureName}`
-- Views = `vw_{ViewName}`
-- Function = `ufn_{FunctionName}`
+	- Stored Procedures = `usp_{ProcedureName}`
+	- Views = `vw_{ViewName}`
+	- Function = `ufn_{FunctionName}`
 
 3. **Data**
 Here are all the scripts to populate the table with data. They are named with the prefix of their run order.
