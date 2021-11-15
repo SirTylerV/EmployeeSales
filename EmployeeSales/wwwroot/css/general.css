@@ -1,0 +1,18 @@
+﻿.ep-pointer {
+    cursor: pointer;
+}
+
+.ep-text-link {
+    text-decoration: none;
+    color: inherit
+}
+
+.ep-text-link:hover {
+    text-decoration: none;
+    color: inherit
+}
+
+.ep-text-link:visited {
+    text-decoration: none;
+    color: inherit
+}

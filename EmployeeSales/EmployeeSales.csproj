@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Employee\**" />
+    <Compile Remove="Views\Purchase\**" />
+    <Content Remove="Views\Employee\**" />
+    <Content Remove="Views\Purchase\**" />
+    <EmbeddedResource Remove="Views\Employee\**" />
+    <EmbeddedResource Remove="Views\Purchase\**" />
+    <None Remove="Views\Employee\**" />
+    <None Remove="Views\Purchase\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.12">
       <PrivateAssets>all</PrivateAssets>
@@ -18,9 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Employee\" />
-    <Folder Include="Views\Purchase\" />
-    <Folder Include="Views\Store\" />
+    <Folder Include="wwwroot\lib\fontawesome\" />
   </ItemGroup>
 
 </Project>

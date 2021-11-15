@@ -1,4 +1,5 @@
 ﻿using EmployeeSales.Models.DB;
+using EmployeeSales.Models.Store;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,10 @@ namespace EmployeeSales.Data
         public DbSet<Purchase> Purchase { get; set; }
         public DbSet<Store> Store { get; set; }
         #endregion Tables
+
+        #region Procedure Models
+        public DbSet<StoreListModel> StoreListModel { get; set; }
+        #endregion Procedure Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,7 +1,49 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to the Employees Sales System! </h1>
+<div class="row pt-1">
+    <div class="col-12 text-center">
+        <h1 class="display-4">Welcome to the Employees Sales System! </h1>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12 text-center">
+        <h6>
+            This application allows the user to access all kinds of information about the stores, employees and sales. To get started, please select an action below:
+        </h6>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h3 class="card-title">Stores</h3>
+                <p class="card-text">View and sort the list of stores in the system. You can select any store for more information about its profits and employees along with what products are selling.</p>
+                <a class="btn btn-primary text-center" asp-controller="Store" asp-action="StoreList">Check Out The Stores!</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h3 class="card-title">Employees</h3>
+                <p class="card-text">View and filter a list of all the employees in the system. You can select the employee to update their information, add in new sales, or see their sales history and how much they are making. </p>
+                <a class="btn btn-primary text-center" asp-controller="Employee" asp-action="List">Check Out the Employees!</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h3 class="card-title">Sales</h3>
+                <p class="card-text">View and filter a list of all the sales in the system. You can select any sale made to more information about profits this sale made, who old the product, and how about commission information.</p>
+                <a class="btn btn-primary text-center" asp-controller="Purchase" asp-action="List">Check Out the Sales!</a>
+            </div>
+        </div>
+    </div>
 </div>

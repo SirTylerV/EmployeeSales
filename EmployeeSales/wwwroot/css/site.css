@@ -2,27 +2,63 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #264653;
+    border-color: #264653;
+}
+
+.btn-primary:link {
+    color: #fff;
+    background-color: #264653;
+    border-color: #264653;
+}
+
+.btn-primary::selection {
+    color: #fff;
+    background-color: #264653;
+    border-color: #264653;
+}
+
+.btn-primary:active {
+    color: #fff;
+    background-color: #264653;
+    border-color: #264653;
+}
+
+.btn-primary:hover {
+    color: #000;
+    background-color: #b0bec5;
+    border-color: #b0bec5;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
+
+.es-bg-primary {
+    background-color: #264653;
+}
+
+.es-bg-secondary {
+    background-color: #b0bec5;
+}
+
+.es-c-primary {
+    color: #264653;
+}
+
+.es-c-secondary {
+    background-color: #b0bec5;
+}
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -30,26 +66,27 @@ html {
     font-size: 14px;
     background-color: #F5F5F5;
 }
+
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 /* Sticky footer styles
@@ -60,13 +97,14 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #F5F5F5;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
 }
