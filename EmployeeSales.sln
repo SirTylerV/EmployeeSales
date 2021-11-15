@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31829.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeSales", "EmployeeSales\EmployeeSales.csproj", "{BED1B24C-7F18-4F13-8A70-BF3C58B6633D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeSales", "EmployeeSales\EmployeeSales.csproj", "{BED1B24C-7F18-4F13-8A70-BF3C58B6633D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{A3D0A9C7-CC5E-4BF3-B481-79C0B19F50C9}"
 	ProjectSection(SolutionItems) = preProject
@@ -27,6 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReRunnable", "ReRunnable", 
 		Database\ReRunnable\_ReRunnable_RunAll.sql = Database\ReRunnable\_ReRunnable_RunAll.sql
 		Database\ReRunnable\ufn_GenerateProfit.sql = Database\ReRunnable\ufn_GenerateProfit.sql
 		Database\ReRunnable\usp_GeneratingPurchaseData.sql = Database\ReRunnable\usp_GeneratingPurchaseData.sql
+		Database\ReRunnable\usp_GetStoreListData.sql = Database\ReRunnable\usp_GetStoreListData.sql
 		Database\ReRunnable\vw_GetRandSalePercentProfit.sql = Database\ReRunnable\vw_GetRandSalePercentProfit.sql
 	EndProjectSection
 EndProject

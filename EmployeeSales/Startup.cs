@@ -1,15 +1,16 @@
 using EmployeeSales.Data;
+using EmployeeSales.Interfaces.Repositories;
+using EmployeeSales.Interfaces.Services.Store;
+using EmployeeSales.Repositories.Store;
+using EmployeeSales.Services.Helpers;
+using EmployeeSales.Services.Store;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace EmployeeSales
 {
@@ -30,6 +31,11 @@ namespace EmployeeSales
             );
 
             services.AddControllersWithViews();
+
+            // Adding Repositories
+            services.AddScoped<IStoreRepository, StoreRepository>();
+            // Adding Services
+            services.AddScoped<IStoreService, StoreService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,7 +1,5 @@
-﻿using EmployeeSales.Data;
-using EmployeeSales.Models;
+﻿using EmployeeSales.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -15,9 +13,7 @@ namespace EmployeeSales.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(
-            ILogger<HomeController> logger
-            )
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
@@ -26,7 +22,6 @@ namespace EmployeeSales.Controllers
         {
             return View();
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
