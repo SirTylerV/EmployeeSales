@@ -11,7 +11,7 @@ namespace EmployeeSales.Models.Employee
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int StoreId { get; set; }
-        public byte EmploymentStatusId { get; set; }
+        public string EmploymentStatus { get; set; }
         public decimal GrossCommission { get; set; }
     }
 }

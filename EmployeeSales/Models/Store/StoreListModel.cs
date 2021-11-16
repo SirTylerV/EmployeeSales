@@ -13,5 +13,9 @@ namespace EmployeeSales.Models.Store
         public string State { get; set; }
         public string ZipCode { get; set; }
         public decimal GrossYearlyProfit { get; set; }
+        public string FormattedGrossYearlyProfit
+        {
+            get { return string.Format("{0:C}", GrossYearlyProfit); }
+        }
     }
 }

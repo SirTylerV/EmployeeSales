@@ -16,3 +16,13 @@
     text-decoration: none;
     color: inherit
 }
+
+.ep-data-container {
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.ep-label {
+    font-size: 16px;
+    font-weight: 700;
+}

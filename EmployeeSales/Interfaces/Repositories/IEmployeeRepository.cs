@@ -1,11 +1,14 @@
-﻿using EmployeeSales.Models.Employee;
+﻿using EmployeeSales.Models.DB;
+using EmployeeSales.Models.Employee;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace EmployeeSales.Interfaces.Repositories
 {
-    interface IEmployeeRepository
+    public interface IEmployeeRepository
     {
-        Task<IEnumerable<EmployeeListModel>> GetEmployeeList();
+        Task<Employee> GetEmployees(int id);
+        IEnumerable<Employee> GetEmployeesByStore(int storeId);
     }
 }

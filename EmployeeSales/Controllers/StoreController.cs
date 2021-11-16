@@ -11,15 +11,15 @@ namespace EmployeeSales.Controllers
     public class StoreController : Controller
     {
         private readonly ILogger<StoreController> _logger;
-        private readonly IStoreService _storeListService;
+        private readonly IStoreService _storeService;
 
         public StoreController(
             ILogger<StoreController> logger,
-            IStoreService storeListService
+            IStoreService storeService
             )
         {
             _logger = logger;
-            _storeListService = storeListService;
+            _storeService = storeService;
         }
 
         [Route("StoreList/{property ?}/{direction ?}")]
@@ -28,13 +28,13 @@ namespace EmployeeSales.Controllers
             ViewBag.SortDirection = direction ?? "asc";
             ViewBag.SortProperty = property ?? "name";
 
-            return View(_storeListService.GetStores(ViewBag.SortDirection, ViewBag.SortProperty));
+            return View(_storeService.GetStores(ViewBag.SortDirection, ViewBag.SortProperty));
         }
 
         [Route("StoreView/{id}")]
-        public IActionResult StoreView(string id)
+        public async Task<IActionResult> StoreView(int id)
         {
-            return View();
+            return View(await _storeService.GetStoreView(id));
         }
     }
 }

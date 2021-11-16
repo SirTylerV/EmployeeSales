@@ -1,10 +1,6 @@
 ﻿using EmployeeSales.Models.DB;
 using EmployeeSales.Models.Store;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EmployeeSales.Data
 {
@@ -153,11 +149,15 @@ namespace EmployeeSales.Data
                 .IsRequired();
             modelBuilder.Entity<Store>()
                 .Property(s => s.State)
+                .HasMaxLength(100)
                 .IsRequired();
             modelBuilder.Entity<Store>()
                 .Property(s => s.ZipCode)
                 .HasMaxLength(20)
                 .IsRequired();
+            modelBuilder.Entity<Store>()
+                .HasMany(s => s.Employees)
+                .WithOne(e => e.Store);
         }
     }
 }
