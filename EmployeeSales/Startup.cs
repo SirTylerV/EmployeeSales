@@ -1,9 +1,8 @@
 using EmployeeSales.Data;
 using EmployeeSales.Interfaces.Repositories;
 using EmployeeSales.Interfaces.Services.Store;
-using EmployeeSales.Repositories.Store;
-using EmployeeSales.Services.Helpers;
-using EmployeeSales.Services.Store;
+using EmployeeSales.Repositories;
+using EmployeeSales.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +32,8 @@ namespace EmployeeSales
             services.AddControllersWithViews();
 
             // Adding Repositories
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IPurchaseRepository, PurchaseRespository>();
             services.AddScoped<IStoreRepository, StoreRepository>();
             // Adding Services
             services.AddScoped<IStoreService, StoreService>();

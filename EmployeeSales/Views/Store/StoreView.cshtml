@@ -5,6 +5,89 @@
 
 <div class="row pt-1">
     <div class="col-12">
-        <h2> Store List </h2>
+        <h2> Store View </h2>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-sm-12 col-md-6 ep-data-container">
+        <div class="row mb-1 mt-2">
+            <div class="col-sm-12 col-md-6">
+                <label class="ep-label">Store Name:</label>
+                <h5>@Model.StoreName</h5>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <label class="ep-label">Location:</label>
+                <p>
+                    @Model.Street
+                    <br />
+                    @Model.State
+                    <br />
+                    @Model.ZipCode
+                </p>
+            </div>
+        </div>
+        <div class="row mb-2 mt-1">
+            <div class="col-sm-12 col-md-4">
+                <label class="ep-label">Gross Profit of Past Year:</label>
+                <p>
+                    @Model.FormattedGrossYearlyProfit
+                </p>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <label class="ep-label">Net Profit of Past Year:</label>
+                <p>
+                    @Model.FormattedYearlyProfit
+                </p>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <label class="ep-label">Product Cost of Past Year:</label>
+                <p>
+                    @Model.FormattedInventoryCost
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+        @if(Model.Employees.Count() > 0)
+        {
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Gross Commission of Past Year
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var employee in Model.Employees)
+                    {
+                    <tr>
+                        <td>
+                            <a class="ep-text-link text-dark ep-pointer" asp-controller="Employee" asp-action="EmployeeView" asp-route-Id="@employee.Id">
+                                @employee.FirstName @employee.LastName
+                            </a>
+                        </td>
+                        <td>
+                            @employee.EmploymentStatus
+                        </td>
+                        <td>
+                            @employee.GrossCommission
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h3> There are currently no Employees at this store</h3>
+        }
     </div>
 </div>
