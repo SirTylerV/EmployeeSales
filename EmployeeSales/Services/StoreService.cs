@@ -1,5 +1,5 @@
 ﻿using EmployeeSales.Interfaces.Repositories;
-using EmployeeSales.Interfaces.Services.Store;
+using EmployeeSales.Interfaces.Services;
 using EmployeeSales.Models.Employee;
 using EmployeeSales.Models.Store;
 using System;
@@ -40,7 +40,6 @@ namespace EmployeeSales.Services
             var employees = _employeeRepository.GetEmployeesByStore(storeId);
             // Grabbing all the purchaes of the past years 
             var purchases = _purchaseRepository.GetPurchasesAfterDate(yearAgo)
-                .Where(p => p.CreatedAt >= yearAgo)
                 .Join(employees,
                         purchase => purchase.EmployeeId,
                         employee => employee.Id,

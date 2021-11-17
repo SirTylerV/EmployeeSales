@@ -1,6 +1,6 @@
 using EmployeeSales.Data;
 using EmployeeSales.Interfaces.Repositories;
-using EmployeeSales.Interfaces.Services.Store;
+using EmployeeSales.Interfaces.Services;
 using EmployeeSales.Repositories;
 using EmployeeSales.Services;
 using Microsoft.AspNetCore.Builder;
@@ -36,6 +36,7 @@ namespace EmployeeSales
             services.AddScoped<IPurchaseRepository, PurchaseRespository>();
             services.AddScoped<IStoreRepository, StoreRepository>();
             // Adding Services
+            services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IStoreService, StoreService>();
         }
 

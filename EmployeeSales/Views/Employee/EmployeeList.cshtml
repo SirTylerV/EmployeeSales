@@ -1,0 +1,116 @@
+﻿@model List<EmployeeSales.Models.Employee.EmployeeListModel>
+@{
+    ViewData["Title"] = "Employee List";
+}
+
+<div class="row pt-1">
+    <div class="col-12">
+        <h2> Employee List </h2>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-12">
+        @if (Model.Count > 0)
+        {
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            @if (ViewBag.SortDirection == "asc")
+                            {
+                                <a class="ep-text-link es-c-primary" asp-controller="Employee" asp-action="EmployeeList" asp-route-Property="name" asp-route-Direction="desc">
+                                    Name @if (ViewBag.SortProperty == "name")
+                                    {<i class="fas fa-chevron-up fa-fw"></i>}
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="ep-text-link es-c-primary" asp-controller="Employee" asp-action="EmployeeList" asp-route-Property="name" asp-route-Direction="asc">
+                                    Name @if (ViewBag.SortProperty == "name")
+                                    {<i class="fas fa-chevron-down fa-fw"></i>}
+                                </a>
+                            }
+                        </th>
+                        <th>
+                            @if (ViewBag.SortDirection == "asc")
+                            {
+                                <a class="ep-text-link es-c-primary" asp-controller="Employee" asp-action="EmployeeList" asp-route-Property="store" asp-route-Direction="desc">
+                                    Store @if (ViewBag.SortProperty == "store")
+                                    {<i class="fas fa-chevron-up fa-fw"></i>}
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="ep-text-link es-c-primary" asp-controller="Employee" asp-action="EmployeeList" asp-route-Property="store" asp-route-Direction="asc">
+                                    Store @if (ViewBag.SortProperty == "store")
+                                    {<i class="fas fa-chevron-down fa-fw"></i>}
+                                </a>
+                            }
+                        </th>
+                        <th>
+                            @if (ViewBag.SortDirection == "asc")
+                            {
+                                <a class="ep-text-link es-c-primary" asp-controller="Employee" asp-action="EmployeeList" asp-route-Property="status" asp-route-Direction="desc">
+                                    Status @if (ViewBag.SortProperty == "status")
+                                    {<i class="fas fa-chevron-up fa-fw"></i>}
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="ep-text-link es-c-primary" asp-controller="Employee" asp-action="EmployeeList" asp-route-Property="status" asp-route-Direction="asc">
+                                    Status @if (ViewBag.SortProperty == "status")
+                                    {<i class="fas fa-chevron-down fa-fw"></i>}
+                                </a>
+                            }
+                        </th>
+                        <th>
+                            @if (ViewBag.SortDirection == "asc")
+                            {
+                                <a class="ep-text-link es-c-primary" asp-controller="Employee" asp-action="EmployeeList" asp-route-Property="comission" asp-route-Direction="desc">
+                                    Gross Commission of Past Year @if (ViewBag.SortProperty == "comission")
+                                    {<i class="fas fa-chevron-up fa-fw"></i>}
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="ep-text-link es-c-primary" asp-controller="Employee" asp-action="EmployeeList" asp-route-Property="comission" asp-route-Direction="asc">
+                                    Gross Commission of Past Year @if (ViewBag.SortProperty == "comission")
+                                    {<i class="fas fa-chevron-down fa-fw"></i>}
+                                </a>
+                            }
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var employee in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a class="ep-text-link text-dark ep-pointer" asp-controller="Employee" asp-action="EmployeeView" asp-route-Id="@employee.Id">
+                                    @employee.FirstName @employee.LastName
+                                </a>
+                            </td>
+                            <td>
+                                <a class="ep-text-link text-dark ep-pointer" asp-controller="Store" asp-action="StoreView" asp-route-Id="@employee.StoreId">
+                                    @employee.StoreName
+                                </a>
+                            </td>
+                            <td>
+                                @employee.EmploymentStatus
+                            </td>
+                            <td>
+                                @employee.FormattedGrossYearlyProfit
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h3>There are currently no employees avialable</h3>
+        }
+    </div>
+</div>

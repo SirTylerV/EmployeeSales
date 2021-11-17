@@ -11,7 +11,12 @@ namespace EmployeeSales.Models.Employee
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int StoreId { get; set; }
+        public string StoreName { get; set; }
         public string EmploymentStatus { get; set; }
         public decimal GrossCommission { get; set; }
+        public string FormattedGrossYearlyProfit
+        {
+            get { return string.Format("{0:C}", GrossCommission); }
+        }
     }
 }

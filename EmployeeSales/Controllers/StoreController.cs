@@ -1,9 +1,6 @@
-﻿using EmployeeSales.Interfaces.Services.Store;
-using EmployeeSales.Models.Store;
+﻿using EmployeeSales.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace EmployeeSales.Controllers
