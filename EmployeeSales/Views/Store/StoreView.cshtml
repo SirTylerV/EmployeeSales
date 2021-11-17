@@ -10,41 +10,41 @@
 </div>
 
 <div class="row mt-3">
-    <div class="col-sm-12 col-md-6 ep-data-container">
-        <div class="row mb-1 mt-2">
-            <div class="col-sm-12 col-md-6">
-                <label class="ep-label">Store Name:</label>
-                <h5>@Model.StoreName</h5>
+    <div class="col-sm-12 col-md-6 ">
+        <div class="ep-data-container">
+            <div class="row mb-1 mt-2">
+                <div class="col-sm-12 col-md-6">
+                    <label class="ep-label">Store Name:</label>
+                    <h5>@Model.StoreName</h5>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <label class="ep-label">Location:</label>
+                    <p>
+                        @Model.Street
+                        <br />
+                        @Model.State, @Model.ZipCode
+                    </p>
+                </div>
             </div>
-            <div class="col-sm-12 col-md-6">
-                <label class="ep-label">Location:</label>
-                <p>
-                    @Model.Street
-                    <br />
-                    @Model.State
-                    <br />
-                    @Model.ZipCode
-                </p>
-            </div>
-        </div>
-        <div class="row mb-2 mt-1">
-            <div class="col-sm-12 col-md-4">
-                <label class="ep-label">Gross Profit of Past Year:</label>
-                <p>
-                    @Model.FormattedGrossYearlyProfit
-                </p>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <label class="ep-label">Net Profit of Past Year:</label>
-                <p>
-                    @Model.FormattedYearlyProfit
-                </p>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <label class="ep-label">Product Cost of Past Year:</label>
-                <p>
-                    @Model.FormattedInventoryCost
-                </p>
+            <div class="row mb-2 mt-4">
+                <div class="col-sm-12 col-md-4">
+                    <label class="ep-label">Gross Profit of Past Year:</label>
+                    <p>
+                        @Model.FormattedGrossYearlyProfit
+                    </p>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <label class="ep-label">Net Profit of Past Year:</label>
+                    <p>
+                        @Model.FormattedYearlyProfit
+                    </p>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <label class="ep-label">Product Cost of Past Year:</label>
+                    <p>
+                        @Model.FormattedInventoryCost
+                    </p>
+                </div>
             </div>
         </div>
     </div>

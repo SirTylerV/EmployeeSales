@@ -8,7 +8,8 @@ namespace EmployeeSales.Interfaces.Repositories
 {
     public interface IEmployeeRepository
     {
-        Task<Employee> GetEmployees(int id);
+        Task<Employee> GetEmployee(int id);
+        IEnumerable<Employee> GetEmployees();
         IEnumerable<Employee> GetEmployeesByStore(int storeId);
     }
 }

@@ -18,11 +18,18 @@ namespace EmployeeSales.Repositories
             _db = db;
         }
 
-        public async Task<Employee> GetEmployees(int id)
+        public async Task<Employee> GetEmployee(int id)
         {
             return await _db.Employee
                 .Include(e => e.EmploymentStatus)
                 .FirstOrDefaultAsync(e => e.Id == id);
+        }
+
+        public IEnumerable<Employee> GetEmployees()
+        {
+            return _db.Employee
+                .Include(e => e.EmploymentStatus)
+                .Include(e => e.Store);
         }
 
         public IEnumerable<Employee> GetEmployeesByStore(int storeId)

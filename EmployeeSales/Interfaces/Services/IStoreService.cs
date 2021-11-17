@@ -1,10 +1,8 @@
 ﻿using EmployeeSales.Models.Store;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
-namespace EmployeeSales.Interfaces.Services.Store
+namespace EmployeeSales.Interfaces.Services
 {
     public interface IStoreService
     {
