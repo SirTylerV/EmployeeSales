@@ -21,7 +21,7 @@ namespace EmployeeSales.Repositories
             _db = db;
         }
 
-        public IEnumerable<StoreListModel> GetStoreListData()
+        public IEnumerable<BaseStoreModel> GetStoreListData()
         {
             return _db.StoreListModel.FromSqlRaw(StoredProcedures.GetProcedure(Enums.StoredProcedureEnum.GetStoreListData));
         }

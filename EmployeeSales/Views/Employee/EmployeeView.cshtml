@@ -1,4 +1,70 @@
-﻿@model List<EmployeeSales.Models.Employee.EmployeeListModel>
+﻿@model EmployeeSales.Models.Employee.ExtendedEmployeeModel
 @{
     ViewData["Title"] = "Employee View";
 }
+
+<div class="row pt-1">
+    <div class="col-8">
+        <h2> @Model.FirstName @Model.LastName </h2>
+    </div>
+    <div class="col-4">
+        <a class="btn btn-primary float-right" asp-controller="Purchase" asp-action="AddSale" asp-route-Id="@Model.Id">
+            Add Sale
+        </a>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-12 ep-data-container">
+        <div class="row">
+            <div class="col-xs-4 col-md-3">
+                <label class="ep-label">Store Name:</label>
+                <p>
+                    @Model.StoreName
+                </p>
+            </div>
+            <div class="col-xs-4 col-md-3">
+                <label class="ep-label">Hire Date:</label>
+                <p>
+                    @Model.FormattedHireDate
+                </p>
+            </div>
+            <div class="col-xs-4 col-md-3">
+                <label class="ep-label">Status:</label>
+                <p>
+                    @Model.EmploymentStatus
+                </p>
+            </div>
+            <div class="col-xs-4 col-md-3">
+                <label class="ep-label">Most Sold Product:</label>
+                <p>
+                    @Model.MostSoldProduct - @Model.MostSoldProductTotal Sold
+                </p>
+            </div>
+            <div class="col-xs-4 col-md-3">
+                <label class="ep-label">Gross Commission Of Last Year:</label>
+                <p>
+                    @Model.FormattedGrossYearlyProfit
+                </p>
+            </div>
+            <div class="col-xs-4 col-md-3">
+                <label class="ep-label">Lifetime Gross Commission:</label>
+                <p>
+                    @Model.FormattedLifetimeCommissionMade
+                </p>
+            </div>
+            <div class="col-xs-4 col-md-3">
+                <label class="ep-label">Lifetime Gross Commission:</label>
+                <p>
+                    @Model.FormattedLifetimeCommissionMade
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-12">
+        <partial name="_EmployeePurchaseList.cshtml" for="Sales" />
+    </div>
+</div>

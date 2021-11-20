@@ -38,5 +38,22 @@ namespace EmployeeSales.Repositories
                 .Include(e => e.EmploymentStatus)
                 .Where(e => e.StoreId == storeId);
         }
+
+
+        public IEnumerable<Product> GetP()
+        {
+            return _db.Product;
+        }
+
+        public async Task<Employee> GetExtendedEmployee(int id)
+        {
+            return await _db.Employee
+                .AsNoTracking()
+                .Include(e => e.EmploymentStatus)
+                .Include(e => e.Store)
+                .Include(e => e.Sales)
+                    .ThenInclude(s => s.Product)
+                .FirstOrDefaultAsync(e => e.Id == id);
+        }
     }
 }

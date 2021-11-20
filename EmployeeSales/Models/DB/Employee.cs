@@ -15,6 +15,6 @@ namespace EmployeeSales.Models.DB
         public Store Store { get; set; }
         public EmploymentStatus EmploymentStatus { get; set; }
         // To an Employee, these are sales since they did not make a purchase
-        public ICollection<Purchase> Sales { get; set; }
+        public virtual ICollection<Purchase> Sales { get; set; }
     }
 }

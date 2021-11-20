@@ -7,7 +7,7 @@ namespace EmployeeSales.Interfaces.Repositories
 {
     public interface IStoreRepository
     {
-        IEnumerable<StoreListModel> GetStoreListData();
+        IEnumerable<BaseStoreModel> GetStoreListData();
         Task<Store> GetStore(int id);
     }
 }

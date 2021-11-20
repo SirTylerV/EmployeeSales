@@ -26,12 +26,12 @@ namespace EmployeeSales.Services
             _storeRepository = storeRepository;
         }
 
-        public List<StoreListModel> GetStores(string direction, string property)
+        public List<BaseStoreModel> GetStores(string direction, string property)
         {
             return SortStoreList(_storeRepository.GetStoreListData(), direction, property);
         }
 
-        public async Task<StoreViewModel> GetStoreView(int storeId)
+        public async Task<ExtendedStoreModel> GetStoreView(int storeId)
         {
             // Get date one year in the past
             var yearAgo = DateTime.UtcNow.AddYears(-1);
@@ -47,7 +47,7 @@ namespace EmployeeSales.Services
 
             // Grabbing the store view and leveraging the queries above
             var s = await _storeRepository.GetStore(storeId);
-            var storeView = new StoreViewModel()
+            var storeView = new ExtendedStoreModel()
             {
                 Id = s.Id,
                 State = s.State,
@@ -55,7 +55,7 @@ namespace EmployeeSales.Services
                 Street = s.Street,
                 ZipCode = s.ZipCode,
                 Employees = employees
-                    .Select(e => new EmployeeListModel()
+                    .Select(e => new BaseEmployeeModel()
                     {
                         Id = e.Id,
                         FirstName = e.FirstName,
@@ -79,7 +79,7 @@ namespace EmployeeSales.Services
             return storeView;
         }
 
-        public List<StoreListModel> SortStoreList(IEnumerable<StoreListModel> stores, string direction, string property)
+        public List<BaseStoreModel> SortStoreList(IEnumerable<BaseStoreModel> stores, string direction, string property)
         {
             switch (property)
             {

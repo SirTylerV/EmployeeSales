@@ -12,8 +12,8 @@ namespace EmployeeSales.Models.DB
         public decimal SalePrice { get; set; }
         public decimal CommissionMade { get; set; }
 
-        public Product Product { get; set; }
-        public Employee Employee { get; set; }
-        public Commission Commission { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual Employee Employee { get; set; }
+        public virtual Commission Commission { get; set; }
     }
 }
