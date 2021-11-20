@@ -9,6 +9,6 @@ namespace EmployeeSales.Models.DB
         public string Description { get; set; }
         public decimal Wholesale { get; set; }
 
-        public ICollection<Purchase> Purchases { get; set; }
+        public virtual ICollection<Purchase> Purchases { get; set; }
     }
 }

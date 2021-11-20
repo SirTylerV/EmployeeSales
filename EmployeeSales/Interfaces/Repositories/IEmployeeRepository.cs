@@ -11,5 +11,7 @@ namespace EmployeeSales.Interfaces.Repositories
         Task<Employee> GetEmployee(int id);
         IEnumerable<Employee> GetEmployees();
         IEnumerable<Employee> GetEmployeesByStore(int storeId);
+        Task<Employee> GetExtendedEmployee(int id);
+        IEnumerable<Product> GetP();
     }
 }

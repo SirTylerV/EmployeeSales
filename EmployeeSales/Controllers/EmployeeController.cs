@@ -1,5 +1,6 @@
 ﻿using EmployeeSales.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace EmployeeSales.Controllers
 {
@@ -20,6 +21,12 @@ namespace EmployeeSales.Controllers
             ViewBag.SortDirection = direction ?? "asc";
             ViewBag.SortProperty = property ?? "name";
             return View(_employeeService.GetEmployees(ViewBag.SortDirection, ViewBag.SortProperty));
+        }
+
+        [Route("EmployeeView/{id}")]
+        public async Task<IActionResult> EmployeeView(int id)
+        {
+            return View(await _employeeService.GetExtendedEmployee(id));
         }
     }
 }

@@ -8,7 +8,8 @@ namespace EmployeeSales.Controllers
 {
     public class PurchaseController : Controller
     {
-        public IActionResult Index()
+        [Route("AddSale/{id}")]
+        public IActionResult AddSale(int employeeId)
         {
             return View();
         }

@@ -8,8 +8,8 @@ namespace EmployeeSales.Interfaces.Services
 {
     public interface IEmployeeService
     {
-        List<EmployeeListModel> GetEmployees(string direction, string property);
-        // Task<EmployeeViewModel> GetEmployeeView(int employeeId);
-        List<EmployeeListModel> SortStoreList(IEnumerable<EmployeeListModel> employees, string direction, string property);
+        List<BaseEmployeeModel> GetEmployees(string direction, string property);
+        Task<ExtendedEmployeeModel> GetExtendedEmployee(int id);
+        List<BaseEmployeeModel> SortStoreList(IEnumerable<BaseEmployeeModel> employees, string direction, string property);
     }
 }

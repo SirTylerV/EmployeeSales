@@ -19,7 +19,7 @@ namespace EmployeeSales.Data
         #endregion Tables
 
         #region Procedure Models
-        public DbSet<StoreListModel> StoreListModel { get; set; }
+        public DbSet<BaseStoreModel> StoreListModel { get; set; }
         #endregion Procedure Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -98,7 +98,8 @@ namespace EmployeeSales.Data
                 .IsRequired();
             modelBuilder.Entity<Product>()
                 .HasMany(p => p.Purchases)
-                .WithOne(p => p.Product);
+                .WithOne(p => p.Product)
+                .HasForeignKey(p => p.ProductId);
 
             // Purchase
             modelBuilder.Entity<Purchase>()

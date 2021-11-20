@@ -10,6 +10,6 @@ namespace EmployeeSales.Models.DB
         public string State { get; set; }
         public string ZipCode { get; set; }
 
-        public ICollection<Employee> Employees { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

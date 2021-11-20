@@ -1,6 +1,7 @@
 ﻿using EmployeeSales.Interfaces.Repositories;
 using EmployeeSales.Interfaces.Services;
 using EmployeeSales.Models.Employee;
+using EmployeeSales.Models.Purchase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,13 +23,13 @@ namespace EmployeeSales.Services
             _purchaseRepository = purchaseRepository;
         }
 
-        public List<EmployeeListModel> GetEmployees(string direction, string property)
+        public List<BaseEmployeeModel> GetEmployees(string direction, string property)
         {
             var date = DateTime.UtcNow.AddYears(-1);
 
             var purchases = _purchaseRepository.GetPurchasesAfterDate(date);
             var employeeList = _employeeRepository.GetEmployees()
-                .Select(e => new EmployeeListModel()
+                .Select(e => new BaseEmployeeModel()
                 {
                     Id = e.Id,
                     FirstName = e.FirstName,
@@ -44,7 +45,52 @@ namespace EmployeeSales.Services
             return SortStoreList(employeeList, direction, property);
         }
 
-        public List<EmployeeListModel> SortStoreList(IEnumerable<EmployeeListModel> employees, string direction, string property)
+        public async Task<ExtendedEmployeeModel> GetExtendedEmployee(int id)
+        {
+            var date = DateTime.UtcNow.AddYears(-1);
+
+            var e = await _employeeRepository.GetExtendedEmployee(id);
+            // Grabbbing all the employee sales and grouping by the productId
+            // so the count can be ordered. Then taking the first grouping as the most sold.
+            var mostSoldProduct = e.Sales
+                .GroupBy(s => s.ProductId)
+                .OrderByDescending(s => s.Count())
+                .ThenByDescending(s => s.Sum(p => p.CommissionMade))
+                .FirstOrDefault();
+
+            return new ExtendedEmployeeModel()
+            {
+                Id = e.Id,
+                FirstName = e.FirstName,
+                LastName = e.LastName,
+                StoreId = e.StoreId,
+                HireDate = e.HireDate,
+                EmploymentStatus = e.EmploymentStatus.StatusName,
+                StoreName = e.Store.StoreName,
+                GrossCommission = e.Sales
+                    .Where(s => s.CreatedAt >= date)
+                    .Sum(s => s.CommissionMade),
+                LifetimeCommissionMade = e.Sales
+                    .Sum(s => s.CommissionMade),
+                Sales = e.Sales
+                    .Select(s => new BasePurchaseModel()
+                    {
+                        Id = s.Id,
+                        CreatedAt = s.CreatedAt,
+                        ProductId = s.ProductId,
+                        ProductName = s.Product.Name,
+                        SalePrice = s.SalePrice,
+                        CommissionMade = s.CommissionMade
+                    })
+                    .OrderByDescending(s => s.CreatedAt)
+                    .ToList(),
+                MostSoldProductId = mostSoldProduct.FirstOrDefault().ProductId,
+                MostSoldProduct = mostSoldProduct.FirstOrDefault().Product.Name,
+                MostSoldProductTotal = mostSoldProduct.Count()
+            };
+        }
+
+        public List<BaseEmployeeModel> SortStoreList(IEnumerable<BaseEmployeeModel> employees, string direction, string property)
         {
             switch (property)
             {

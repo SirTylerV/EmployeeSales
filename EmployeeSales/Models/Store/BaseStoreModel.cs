@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeSales.Models.Store
 {
-    public class StoreListModel
+    public class BaseStoreModel
     {
         public int Id { get; set; }
         public string StoreName { get; set; }
