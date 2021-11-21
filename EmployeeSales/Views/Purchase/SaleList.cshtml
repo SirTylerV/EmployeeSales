@@ -1,0 +1,192 @@
+﻿@model List<EmployeeSales.Models.Purchase.BasePurchaseModel>
+@{
+    ViewData["Title"] = "Sales List";
+}
+
+<div class="row pt-1">
+    <div class="col-12">
+        <h2> Sales List </h2>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-12">
+        @if (Model.Count > 0)
+        {
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            @if (ViewBag.SortDirection == "asc")
+                            {
+                                <a class="ep-text-link es-c-primary" asp-controller="Purchase" asp-action="SaleList" asp-route-Property="name" asp-route-Direction="desc" asp-route-PageNumber="1">
+                                    Product Name @if (ViewBag.SortProperty == "name")
+                                    {<i class="fas fa-chevron-up fa-fw"></i>}
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="ep-text-link es-c-primary" asp-controller="Purchase" asp-action="SaleList" asp-route-Property="name" asp-route-Direction="asc" asp-route-PageNumber="1">
+                                    Product Name @if (ViewBag.SortProperty == "name")
+                                    {<i class="fas fa-chevron-down fa-fw"></i>}
+                                </a>
+                            }
+                        </th>
+                        <th>
+                            @if (ViewBag.SortDirection == "asc")
+                            {
+                                <a class="ep-text-link es-c-primary" asp-controller="Purchase" asp-action="SaleList" asp-route-Property="date" asp-route-Direction="desc" asp-route-PageNumber="1">
+                                    Date Sold @if (ViewBag.SortProperty == "date")
+                                    {<i class="fas fa-chevron-up fa-fw"></i>}
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="ep-text-link es-c-primary" asp-controller="Purchase" asp-action="SaleList" asp-route-Property="date" asp-route-Direction="asc" asp-route-PageNumber="1">
+                                    Date Sold @if (ViewBag.SortProperty == "date")
+                                    {<i class="fas fa-chevron-down fa-fw"></i>}
+                                </a>
+                            }
+                        </th>
+                        <th>
+                            @if (ViewBag.SortDirection == "asc")
+                            {
+                                <a class="ep-text-link es-c-primary" asp-controller="Purchase" asp-action="SaleList" asp-route-Property="wholesale" asp-route-Direction="desc" asp-route-PageNumber="1">
+                                    Wholesale Cost @if (ViewBag.SortProperty == "wholesale")
+                                    {<i class="fas fa-chevron-up fa-fw"></i>}
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="ep-text-link es-c-primary" asp-controller="Purchase" asp-action="SaleList" asp-route-Property="wholesale" asp-route-Direction="asc" asp-route-PageNumber="1">
+                                    Wholesale Cost @if (ViewBag.SortProperty == "wholesale")
+                                    {<i class="fas fa-chevron-down fa-fw"></i>}
+                                </a>
+                            }
+                        </th>
+                        <th>
+                            @if (ViewBag.SortDirection == "asc")
+                            {
+                                <a class="ep-text-link es-c-primary" asp-controller="Purchase" asp-action="SaleList" asp-route-Property="salePrice" asp-route-Direction="desc" asp-route-PageNumber="1">
+                                    Sale Price @if (ViewBag.SortProperty == "salePrice")
+                                    {<i class="fas fa-chevron-up fa-fw"></i>}
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="ep-text-link es-c-primary" asp-controller="Purchase" asp-action="SaleList" asp-route-Property="salePrice" asp-route-Direction="asc" asp-route-PageNumber="1">
+                                    Sale Price @if (ViewBag.SortProperty == "salePrice")
+                                    {<i class="fas fa-chevron-down fa-fw"></i>}
+                                </a>
+                            }
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var purchase in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a class="ep-text-link text-dark ep-pointer" asp-controller="Purchase" asp-action="SaleView" asp-route-Id="@purchase.Id">
+                                    @purchase.Id - @purchase.ProductName
+                                </a>
+                            </td>
+                            <td>
+                                @purchase.FormattedCreatedAt
+                            </td>
+                            <td>
+                                @purchase.FormattedWholesale
+                            </td>
+                            <td>
+                                @purchase.FormattedSalePrice
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h3>There are currently no employees avialable</h3>
+        }
+    </div>
+    @if (Model.Count > 0)
+    {
+        <div class="col-12">
+            <nav aria-label="...">
+                <ul class="pagination">
+                    @if (ViewBag.PageNumber == 1)
+                    {
+                        <li class="page-item disabled">
+                            <span class="page-link">Previous</span>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-controller="Purchase"
+                               asp-action="SaleList"
+                               asp-route-Property="@ViewBag.SortProperty"
+                               asp-route-Direction="@ViewBag.SortDirection"
+                               asp-route-PageNumber="@(ViewBag.PageNumber - 1)">
+                                Previous
+                            </a>
+                        </li>
+                    }
+
+                    @for (var i = ViewBag.PaginateStart; i <= ViewBag.PaginateEnd; i++)
+                    {
+                        if (i != ViewBag.PageNumber)
+                        {
+                            <li class="page-item">
+                                <a class="page-link" asp-controller="Purchase"
+                                   asp-action="SaleList"
+                                   asp-route-Property="@ViewBag.SortProperty"
+                                   asp-route-Direction="@ViewBag.SortDirection"
+                                   asp-route-PageNumber="@i">
+                                    @i
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item active">
+                                <a class="page-link" asp-controller="Purchase"
+                                   asp-action="SaleList"
+                                   asp-route-Property="@ViewBag.SortProperty"
+                                   asp-route-Direction="@ViewBag.SortDirection"
+                                   asp-route-PageNumber="@i">
+                                    @i
+                                </a>
+                            </li>
+                        }
+
+                        @if (i == ViewBag.PaginateEnd)
+                        {
+                            @if (i != ViewBag.MaxPages)
+                            {
+                                <li class="page-item">
+                                    <a class="page-link" asp-controller="Purchase"
+                                       asp-action="SaleList"
+                                       asp-route-Property="@ViewBag.SortProperty"
+                                       asp-route-Direction="@ViewBag.SortDirection"
+                                       asp-route-PageNumber="@(ViewBag.PageNumber + 1)">
+                                        Next
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="page-item disabled">
+                                    <span class="page-link">Next</span>
+                                </li>
+                            }
+                        }
+
+                    }
+
+                </ul>
+            </nav>
+        </div>
+    }
+</div>
