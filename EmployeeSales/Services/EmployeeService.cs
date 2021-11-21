@@ -23,6 +23,19 @@ namespace EmployeeSales.Services
             _purchaseRepository = purchaseRepository;
         }
 
+        public async Task<BaseEmployeeModel> GetBaseEmployee(int id)
+        {
+            var e = await _employeeRepository.GetEmployee(id);
+            return new BaseEmployeeModel()
+            {
+                Id = e.Id,
+                FirstName = e.FirstName,
+                LastName = e.LastName,
+                StoreId = e.StoreId,
+                EmploymentStatus = e.EmploymentStatus.StatusName
+            };
+        }
+
         public List<BaseEmployeeModel> GetEmployees(string direction, string property)
         {
             var date = DateTime.UtcNow.AddYears(-1);

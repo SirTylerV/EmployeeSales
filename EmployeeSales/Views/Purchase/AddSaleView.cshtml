@@ -1,0 +1,47 @@
+﻿@model EmployeeSales.Models.DB.Purchase
+@{
+    var selectListItems = new List<SelectListItem>();
+    foreach(var product in ViewBag.Products)
+    {
+        selectListItems.Add(new SelectListItem()
+        {
+            Value = product.Id.ToString(),
+            Text = product.Id.ToString() + " " + product.Name
+        });
+    }
+
+    var selectList = new SelectList(selectListItems, "Value", "Text");
+}
+
+<div class="row pt-1">
+    <div class="col-12">
+        <h2> Add Employee Sale </h2>
+    </div>
+</div>
+
+
+<div class="row mt-3">
+    <form asp-controller="Purchase" asp-action="SaveSale" method="post" class="col-12 ep-data-container" role="form">
+        <div class="row">
+            <div class="col-xs-4 col-md-4">
+                <label class="ep-label" for="employeeName"> Employee Name: </label>
+                <input disabled id="employeeName" name="employeeName" class="form-control" value="@Model.Employee.FirstName @Model.Employee.LastName" />
+                <input id="employeeId" type="hidden" name="employeeId" asp-for="EmployeeId" data-val="true" />
+            </div>
+            <div class="col-xs-4 col-md-4">
+                <label class="ep-label" for="productId"> Product: </label>
+                @Html.DropDownListFor(m => m.ProductId, selectList, "Please Select A Product", new { @class = "form-control" })
+            </div>
+            <div class="col-xs-4 col-md-4">
+                <label class="ep-label" for="salePrice"> Sale Price: </label>
+                <input id="salePrice" class="form-control" type="number" name="salePrice" asp-for="SalePrice" step="0.01" data-val="true" />
+                <span asp-validation-for="SalePrice" class="help-block text-danger"></span>
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="col-12">
+                <button class="btn btn-primary float-right" type="submit">Enter Sale</button>
+            </div>
+        </div>
+    </form>
+</div>

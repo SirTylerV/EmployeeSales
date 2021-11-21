@@ -32,11 +32,16 @@ namespace EmployeeSales
             services.AddControllersWithViews();
 
             // Adding Repositories
+            services.AddScoped<ICommissionRepository, CommissionRepository>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IPurchaseRepository, PurchaseRespository>();
             services.AddScoped<IStoreRepository, StoreRepository>();
             // Adding Services
+            services.AddScoped<ICommissionService, CommissionService>();
             services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IPurchaseService, PurchaseService>();
             services.AddScoped<IStoreService, StoreService>();
         }
 
