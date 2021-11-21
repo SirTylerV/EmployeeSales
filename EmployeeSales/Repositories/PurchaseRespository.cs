@@ -26,6 +26,12 @@ namespace EmployeeSales.Repositories
             await _db.SaveChangesAsync();
         }
 
+        public IEnumerable<Purchase> GetAllPurchases()
+        {
+            return _db.Purchase
+                    .Include(p => p.Product);
+        }
+
         public IEnumerable<Purchase> GetPurchasesAfterDate(DateTime date)
         {
             return _db.Purchase

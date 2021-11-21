@@ -15,6 +15,11 @@ namespace EmployeeSales.Models.Purchase
         }
         public int ProductId { get; set;  }
         public string ProductName { get; set; }
+        public decimal Wholesale { get; set; }
+        public string FormattedWholesale
+        {
+            get { return string.Format("{0:C}", Wholesale); }
+        }
         public decimal SalePrice { get; set; }
         public string FormattedSalePrice
         {

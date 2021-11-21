@@ -1,6 +1,9 @@
 ﻿using EmployeeSales.Interfaces.Services;
 using EmployeeSales.Models.DB;
+using EmployeeSales.Models.Purchase;
+using EmployeeSales.Services.Helpers;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace EmployeeSales.Controllers
@@ -38,6 +41,26 @@ namespace EmployeeSales.Controllers
             ViewBag.Products = _productService.GetProducts();
 
             return View(purchase);
+        }
+
+        [Route("SaleList/{property ?}/{direction ?}/{pageNumber ?}")]
+        public IActionResult SaleList(string property = "name", string direction = "asc", int pageNumber = 1)
+        {
+            // Setting the sorting stuff
+            ViewBag.SortDirection = direction;
+            ViewBag.SortProperty = property;
+            ViewBag.PageNumber = pageNumber;
+            var pageSize = 25;
+            // Getting the total purchases
+            var purchases = _purchaseService.GetPurchases(direction, property);
+            // Calculating the Max number of pages
+            ViewBag.MaxPages = Math.Round(((decimal)purchases.Count / (decimal)pageSize), MidpointRounding.AwayFromZero);
+            // Setting the page start and stop for the pagination
+            PaginationService.SetStartAndEndPagination((int)ViewBag.MaxPages, (int)ViewBag.PageNumber, out int start, out int end);
+            ViewBag.PaginateStart = start;
+            ViewBag.PaginateEnd = end;
+            // Return the paginated results
+            return View(PaginationService.PaginateList<BasePurchaseModel>(purchases, pageNumber, pageSize));
         }
 
         [Route("SaveSale")]
