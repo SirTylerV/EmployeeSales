@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace EmployeeSales.Repositories
 {
@@ -17,6 +18,12 @@ namespace EmployeeSales.Repositories
             )
         {
             _db = db;
+        }
+
+        public async Task CreatePurchase(Purchase p)
+        {
+            _db.Purchase.Add(p);
+            await _db.SaveChangesAsync();
         }
 
         public IEnumerable<Purchase> GetPurchasesAfterDate(DateTime date)

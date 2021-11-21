@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace EmployeeSales.Models.DB
 {
@@ -9,6 +10,8 @@ namespace EmployeeSales.Models.DB
         public int ProductId { get; set; }
         public DateTime CreatedAt { get; set; }
         public int CommissionId { get; set; }
+        [Required]
+        [Range(typeof(decimal), "0", "900000")] 
         public decimal SalePrice { get; set; }
         public decimal CommissionMade { get; set; }
 
