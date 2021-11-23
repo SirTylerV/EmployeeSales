@@ -9,6 +9,7 @@ namespace EmployeeSales.Interfaces.Repositories
     {
         Task CreatePurchase(Purchase p);
         IEnumerable<Purchase> GetAllPurchases();
+        Task<Purchase> GetExtendedPurchase(int id);
         IEnumerable<Purchase> GetPurchasesAfterDate(DateTime date);
         IEnumerable<Purchase> GetPurchasesBeforeDate(DateTime date);
         IEnumerable<Purchase> GetPurchasesBetweenDates(DateTime start, DateTime end);

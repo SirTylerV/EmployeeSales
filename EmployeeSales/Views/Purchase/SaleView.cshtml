@@ -1,0 +1,80 @@
+﻿@model EmployeeSales.Models.Purchase.ExtendedPurchaseModel
+@{
+    ViewData["Title"] = "Sales View";
+}
+
+<div class="row pt-1">
+    <div class="col-12">
+        <h2> Sales View </h2>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-12 ep-data-container">
+        <div class="row">
+            <div class="col-xs-4 col-md-3">
+                <label class="ep-label">Purchase Id:</label>
+                <p>
+                    @Model.Id
+                </p>
+            </div>
+            <div class="col-xs-4 col-md-3">
+                <label class="ep-label">Product Name:</label>
+                <p>
+                    @Model.ProductName
+                </p>
+            </div>
+            <div class="col-xs-4 col-md-3">
+                <label class="ep-label">Sold By:</label>
+                <br />
+                <a class="ep-text-link text-dark ep-pointer" asp-controller="Employee" asp-action="EmployeeView" asp-route-Id="@Model.EmployeeId">
+                    @Model.EmployeeFirstName @Model.EmployeeLastName
+                </a>
+            </div>
+            <div class="col-xs-4 col-md-3">
+                <label class="ep-label">Date Sold:</label>
+                <p>
+                    @Model.FormattedCreatedAt
+                </p>
+            </div>
+            <div class="col-xs-4 col-md-3">
+                <label class="ep-label">Wholesale:</label>
+                <p>
+                    @Model.FormattedWholesale
+                </p>
+            </div>
+            <div class="col-xs-4 col-md-3">
+                <label class="ep-label">Sale Price:</label>
+                <p>
+                    @Model.FormattedSalePrice
+                </p>
+            </div>
+            <div class="col-xs-4 col-md-3">
+                <label class="ep-label">Commission Made:</label>
+                <p>
+                    @Model.FormattedCommissionMade
+                </p>
+            </div>
+            <div class="col-xs-4 col-md-3">
+                <label class="ep-label">Commission Eligibility Percent:</label>
+                <p>
+                    @Model.FormattedCommissionEligibility
+                </p>
+            </div>
+            <div class="col-xs-4 col-md-3">
+                <label class="ep-label">Commission Profit Percent:</label>
+                <p>
+                    @Model.FormattedCommissionProfit
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <label class="ep-label">Product Description:</label>
+                <p>
+                    @Model.ProductDescription
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

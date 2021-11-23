@@ -19,9 +19,10 @@
         <div class="row">
             <div class="col-xs-4 col-md-3">
                 <label class="ep-label">Store Name:</label>
-                <p>
+                <br />
+                <a class="ep-text-link text-dark ep-pointer" asp-controller="Store" asp-action="StoreView" asp-route-Id="@Model.StoreId">
                     @Model.StoreName
-                </p>
+                </a>
             </div>
             <div class="col-xs-4 col-md-3">
                 <label class="ep-label">Hire Date:</label>

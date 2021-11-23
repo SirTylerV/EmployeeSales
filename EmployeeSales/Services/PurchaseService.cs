@@ -41,6 +41,27 @@ namespace EmployeeSales.Services
             await _purchaseRepository.CreatePurchase(purchase);
         }
 
+        public async Task<ExtendedPurchaseModel> GetExtendedPurchases(int id)
+        {
+            var purchase = await _purchaseRepository.GetExtendedPurchase(id);
+            return new ExtendedPurchaseModel()
+            {
+                Id = purchase.Id,
+                CreatedAt = purchase.CreatedAt,
+                ProductId = purchase.ProductId,
+                ProductName = purchase.Product.Name,
+                ProductDescription = purchase.Product.Description,
+                Wholesale = purchase.Product.Wholesale,
+                SalePrice = purchase.SalePrice,
+                CommissionMade = purchase.CommissionMade,
+                CommissionEligibility = purchase.Commission.ProfitEligibility,
+                CommissionProfit = purchase.Commission.Percent,
+                EmployeeId = purchase.EmployeeId,
+                EmployeeFirstName = purchase.Employee.FirstName,
+                EmployeeLastName = purchase.Employee.LastName
+            };
+        }
+
         public List<BasePurchaseModel> GetPurchases(string direction, string property)
         {
             var purchases = _purchaseRepository.GetAllPurchases()

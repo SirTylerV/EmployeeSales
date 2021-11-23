@@ -29,7 +29,16 @@ namespace EmployeeSales.Repositories
         public IEnumerable<Purchase> GetAllPurchases()
         {
             return _db.Purchase
-                    .Include(p => p.Product);
+                .Include(p => p.Product);
+        }
+
+        public async Task<Purchase> GetExtendedPurchase(int id)
+        {
+            return await _db.Purchase
+                .Include(p => p.Commission)
+                .Include(p => p.Employee)
+                .Include(p => p.Product)
+                .FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public IEnumerable<Purchase> GetPurchasesAfterDate(DateTime date)

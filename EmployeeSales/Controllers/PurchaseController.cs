@@ -43,6 +43,12 @@ namespace EmployeeSales.Controllers
             return View(purchase);
         }
 
+        [Route("SaleView/{id}")]
+        public async Task<IActionResult> SaleView(int id)
+        {
+            return View(await _purchaseService.GetExtendedPurchases(id));
+        }
+
         [Route("SaleList/{property ?}/{direction ?}/{pageNumber ?}")]
         public IActionResult SaleList(string property = "name", string direction = "asc", int pageNumber = 1)
         {
