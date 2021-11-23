@@ -27,10 +27,14 @@
             {
             <tr>
                 <td>
-                    @sales.ProductId
+                    <a class="ep-text-link text-dark ep-pointer" asp-controller="Purchase" asp-action="SaleView" asp-route-Id="@sales.ProductId">
+                        @sales.ProductId
+                    </a>
                 </td>
                 <td>
-                    @sales.ProductName
+                    <a class="ep-text-link text-dark ep-pointer" asp-controller="Purchase" asp-action="SaleView" asp-route-Id="@sales.ProductId">
+                        @sales.ProductName
+                    </a>
                 </td>
                 <td>
                     @sales.FormattedCreatedAt
